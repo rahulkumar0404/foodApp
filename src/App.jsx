@@ -1,11 +1,12 @@
-import Header from './components/Header'
-import Meals from './components/Meals'
+import Header from './components/Header';
+import Meals from './components/Meals';
+import { CardContextProvider } from './store/CardContext';
 function App() {
   return (
-    <>
-     <Header />
-     <Meals />
-    </>
+    <CardContextProvider>
+      <Header />
+      <Meals />
+    </CardContextProvider>
   );
 }
 
