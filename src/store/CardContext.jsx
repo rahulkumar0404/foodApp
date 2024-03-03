@@ -52,12 +52,12 @@ function cardReducer(state, action) {
 export function CardContextProvider({ children }) {
   const [cart, dispatchCardAction] = useReducer(cardReducer, { items: [] });
 
-  const CardContext = {
+  const cardContext = {
     items: cart.items,
     addItem,
     removeItem,
   };
-
+  // console.log(cardContext);
   function addItem(item) {
     dispatchCardAction({ type: 'ADD_ITEM', item });
   }
@@ -67,7 +67,7 @@ export function CardContextProvider({ children }) {
   }
 
   return (
-    <CardContext.Provider value={CardContext.value}>
+    <CardContext.Provider value={cardContext}>
       {children}
     </CardContext.Provider>
   );
