@@ -1,6 +1,6 @@
 import MealItem from './MealItem';
 import useHttp from '../hooks/useHttp';
-
+import Error from './Error';
 const requestConfig = {};
 export default function Meals() {
   // const [loadedMeals, setLoadedMeals] = useState([]);
@@ -23,9 +23,12 @@ export default function Meals() {
     error,
   } = useHttp('http://localhost:3000/meals', requestConfig, []);
 
-  console.log(loadedMeals);
   if (isLoading) {
-    return <p>Fetching meal...</p>;
+    return <p className="center">Fetching meal...</p>;
+  }
+
+  if (error) {
+    return <Error title="Failed to load Meals" message={error} />;
   }
   return (
     <ul id="meals">
