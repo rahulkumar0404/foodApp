@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Modal from './Modal';
+import Modal from './UI/Modal';
 import { currencyFormatter } from '../utils/formatting';
 import CardContext from '../store/CardContext';
 import Input from './Input';
